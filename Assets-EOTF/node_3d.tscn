@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnymgpe6tglck"]
+
+[ext_resource type="PackedScene" uid="uid://cpyuvty3wjahv" path="res://Assets-EOTF/Characters/character_skeleton_archer.gltf" id="1_bievy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="character_skeleton_archer" parent="." instance=ExtResource("1_bievy")]
