@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://2mk3iyuj4bsk"]
+[gd_scene load_steps=26 format=3 uid="uid://2mk3iyuj4bsk"]
 
 [ext_resource type="PackedScene" uid="uid://byiuw6gotvn10" path="res://Assets-EOTF/Animations/animations.tscn" id="1_j6oxq"]
 
@@ -552,15 +552,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_foi8w")
 
-[node name="character_skeleton_archer" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oxd18"]
+radius = 0.378865
+height = 1.52943
+
+[node name="Player" type="CharacterBody3D"]
 
 [node name="KayKit Animated Character2" parent="." instance=ExtResource("1_j6oxq")]
 
 [node name="Skeleton3D" parent="KayKit Animated Character2/KayKit Animated Character" index="0"]
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(0.044548, -7.76252e-26, -9.89164e-18, 0.999007)
 bones/2/rotation = Quaternion(-0.685863, -0.172023, 0.685863, -0.172022)
 bones/3/rotation = Quaternion(0.606617, -0.606617, 0.36334, 0.36334)
-bones/4/rotation = Quaternion(-0.685863, 0.172023, 0.685863, 0.172023)
-bones/5/rotation = Quaternion(0.36334, -0.36334, 0.606617, 0.606617)
+bones/4/rotation = Quaternion(-0.705107, 0.285918, 0.646723, 0.0531368)
+bones/5/rotation = Quaternion(0.300506, -0.376591, 0.679877, 0.55285)
+
+[node name="Head" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D" index="0"]
+transform = Transform3D(1, 1.97636e-17, -8.81306e-19, -1.97636e-17, 0.996031, -0.0890076, -8.81306e-19, 0.0890076, 0.996031, 0, 0.711598, 0)
 
 [node name="character_skeleton_archer_head" type="MeshInstance3D" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D/Head" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00706154, 0)
@@ -587,6 +596,9 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_5mppq")
 skeleton = NodePath("")
 
+[node name="Body" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="character_skeleton_archer_body" type="MeshInstance3D" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D/Body" index="0"]
 mesh = SubResource("ArrayMesh_ewv77")
 skeleton = NodePath("")
@@ -600,7 +612,7 @@ mesh = SubResource("ArrayMesh_rh2yc")
 skeleton = NodePath("")
 
 [node name="Armright" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D" index="3"]
-transform = Transform3D(0, -0.471937, -0.881632, 1.49012e-08, -0.881632, 0.471937, -1, 1.49012e-08, 5.96046e-08, -0.14, 0.691598, 8.40813e-15)
+transform = Transform3D(-3.57628e-07, -0.471936, -0.881633, -0.334476, -0.830855, 0.444754, -0.942404, 0.294886, -0.157851, -0.14, 0.691598, 8.40813e-15)
 
 [node name="character_skeleton_archer_armRight" type="MeshInstance3D" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D/Armright" index="0"]
 transform = Transform3D(0, 0, -1, -0.471937, -0.881632, 0, -0.881632, 0.471937, 0, 8.40813e-15, 0.0813981, 0.0290749)
@@ -611,6 +623,10 @@ skeleton = NodePath("")
 transform = Transform3D(-1, 4.76837e-07, 7.45058e-07, 7.45058e-07, -1.3411e-06, 1, 4.43815e-07, 1, 1.33429e-06, 0.4, 0.205887, -7.63472e-07)
 
 [node name="Handslotright" parent="KayKit Animated Character2/KayKit Animated Character/Skeleton3D" index="5"]
-transform = Transform3D(-1, 2.62747e-08, 7.45058e-07, 7.15256e-07, -2.8966e-08, 1, 5.95818e-08, 1, 4.47946e-08, -0.4, 0.205887, 8.20938e-09)
+transform = Transform3D(-0.975313, 0.208107, -0.0738616, -8.64267e-07, 0.334475, 0.942405, 0.220825, 0.91914, -0.326218, -0.4, 0.233862, 0.162459)
+
+[node name="Player-collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000861794, 0.716469, -0.0161454)
+shape = SubResource("CapsuleShape3D_oxd18")
 
 [editable path="KayKit Animated Character2"]
