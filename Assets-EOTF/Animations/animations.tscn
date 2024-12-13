@@ -1,4 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://byiuw6gotvn10"]
+[gd_scene load_steps=34 format=3 uid="uid://byiuw6gotvn10"]
+
+[ext_resource type="PackedScene" uid="uid://b0v5tbv0flctu" path="res://Assets-EOTF/Animations/PrototypePete.gltf" id="1_222ys"]
 
 [sub_resource type="Animation" id="Animation_vpuso"]
 resource_name = "Attack(1h)"
@@ -3590,34 +3592,36 @@ bones/5/position = Vector3(3.33226e-15, 0.550922, -1.84059e-08)
 bones/5/rotation = Quaternion(0.36334, -0.36334, 0.606617, 0.606617)
 bones/5/scale = Vector3(1, 1, 1)
 
-[node name="Head" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D"]
+[node name="PrototypePete" parent="KayKit Animated Character/Skeleton3D" instance=ExtResource("1_222ys")]
+
+[node name="Head" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D/PrototypePete"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711598, 0)
 bone_name = "Head"
 bone_idx = 1
 
-[node name="Body" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D"]
+[node name="Body" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D/PrototypePete"]
 bone_name = "Body"
 bone_idx = 0
 
-[node name="Armleft" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D"]
-transform = Transform3D(-4.76837e-07, 0.471936, -0.881633, 1.3411e-06, -0.881633, -0.471936, -1, -1.38581e-06, -2.38419e-07, 0.14, 0.691598, -1.3027e-15)
-bone_name = "armLeft"
-bone_idx = 2
+[node name="Handslotright" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D/PrototypePete"]
+transform = Transform3D(-1, 2.62747e-08, 7.45058e-07, 7.15256e-07, -2.8966e-08, 1, 5.95818e-08, 1, 4.47946e-08, -0.4, 0.205887, 8.20938e-09)
+bone_name = "handSlotRight"
+bone_idx = 5
 
-[node name="Armright" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D"]
-transform = Transform3D(0, -0.471937, -0.881632, 1.49012e-08, -0.881632, 0.471937, -1, 1.49012e-08, 5.96046e-08, -0.14, 0.691598, 8.40813e-15)
-bone_name = "armRight"
-bone_idx = 4
-
-[node name="Handslotleft" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D"]
+[node name="Handslotleft" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D/PrototypePete"]
 transform = Transform3D(-1, 4.76837e-07, 7.45058e-07, 7.45058e-07, -1.3411e-06, 1, 4.43815e-07, 1, 1.33429e-06, 0.4, 0.205887, -7.63472e-07)
 bone_name = "handSlotLeft"
 bone_idx = 3
 
-[node name="Handslotright" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D"]
-transform = Transform3D(-1, 2.62747e-08, 7.45058e-07, 7.15256e-07, -2.8966e-08, 1, 5.95818e-08, 1, 4.47946e-08, -0.4, 0.205887, 8.20938e-09)
-bone_name = "handSlotRight"
-bone_idx = 5
+[node name="Armright" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D/PrototypePete"]
+transform = Transform3D(0, -0.471937, -0.881632, 1.49012e-08, -0.881632, 0.471937, -1, 1.49012e-08, 5.96046e-08, -0.14, 0.691598, 8.40813e-15)
+bone_name = "armRight"
+bone_idx = 4
+
+[node name="Armleft" type="BoneAttachment3D" parent="KayKit Animated Character/Skeleton3D/PrototypePete"]
+transform = Transform3D(-4.76837e-07, 0.471936, -0.881633, 1.3411e-06, -0.881633, -0.471936, -1, -1.38581e-06, -2.38419e-07, 0.14, 0.691598, -1.3027e-15)
+bone_name = "armLeft"
+bone_idx = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
